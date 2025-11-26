@@ -19,6 +19,7 @@ body {
     text-align: center;
     width: 90%;
     max-width: 500px;
+    
 }
 
 h1 {
@@ -27,7 +28,9 @@ h1 {
     letter-spacing: 3px;
     margin-bottom: 40px;
 }
-
+a {
+    text-decoration: none;
+}
 
 .btn{
     background: #F1DBBC;
@@ -86,24 +89,28 @@ h1 {
 
 
 .falling-text:nth-child(1) { left: 5%;  animation-duration: 5s;  animation-delay: 0s; }
-.falling-text:nth-child(2) { left: 20%; animation-duration: 6s;  animation-delay: 1s; }
-.falling-text:nth-child(3) { left: 50%; animation-duration: 7s;  animation-delay: 0.5s; }
-.falling-text:nth-child(4) { left: 70%; animation-duration: 4.5s; animation-delay: 2s; }
-.falling-text:nth-child(5) { left: 90%; animation-duration: 8s;  animation-delay: 1.5s; }
-.falling-text:nth-child(6) { left: 100%; animation-duration: 9s;  animation-delay: 2.3s; }
+.falling-text:nth-child(2) { left: 15%; animation-duration: 6s;  animation-delay: 1s; }
+.falling-text:nth-child(3) { left: 40%; animation-duration: 7s;  animation-delay: 0.5s; }
+.falling-text:nth-child(4) { left: 60%; animation-duration: 4.5s; animation-delay: 2s; }
+.falling-text:nth-child(5) { left: 70%; animation-duration: 8s;  animation-delay: 1.5s; }
+.falling-text:nth-child(6) { left: 80%; animation-duration: 9s;  animation-delay: 2.3s; }
+.falling-text:nth-child(7) { left: 88%; animation-duration: 11s;  animation-delay: 2.5s; }
+.falling-text:nth-child(8) { left: 90%; animation-duration: 9s;  animation-delay: 2.3s; }
+.falling-text:nth-child(9) { left: 98%; animation-duration: 11s;  animation-delay: 2.5s; }
+
 
 @media (min-width: 900px) {
     h1 {
         margin-bottom: 60px;
     }
 
-    .btn-purple {
+    .btn{
         margin: 20px auto;
     }
 }
 
 @media (max-width: 350px) {
-    .btn-purple {
+    .btn{
         padding: 14px 20px;
         width: 90%;
     }
