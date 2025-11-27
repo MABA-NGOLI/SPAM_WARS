@@ -2,7 +2,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Fredoka One', sans-serif;
-    background-image: url('images/image-font.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -12,7 +11,9 @@ body {
     justify-content: center;
     align-items: center;
 }
-
+#home1{
+   background-image: url('images/image-font.png');
+}
 .container {
     text-align: center;
     width: 90%;
@@ -154,11 +155,13 @@ a {
 body {
   margin: 0;
   font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial;
-  color: #fff;
+  color: #00373C;;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+#home2{
+   background-color: #00373C;
+}
 /* ----------------------------
    Container
 ---------------------------- */
@@ -168,6 +171,12 @@ body {
   padding: 28px;
   border-radius: 16px;
   background: #D9B98C
+}
+.home-img {
+  display: block;         /* pour pouvoir centrer avec margin auto */
+  margin: 10px auto;      /* centrer horizontalement + un peu d’espace en haut/bas */
+  max-width: 30%;         /* largeur maximale relative à la fenêtre */
+  height: auto;           /* conserve les proportions */
 }
 
 /* ----------------------------
@@ -237,7 +246,7 @@ body {
   background: linear-gradient(1deg, rgba(209, 211, 107, 0.01), transparent);
   padding: 18px;
   border-radius: 12px;
-  border: 10px solid var(--glass);
+  border: 1px solid var(--glass);
   transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
 
@@ -333,7 +342,7 @@ body {
   margin-top: 26px;
   display: flex;
   justify-content: space-between;
-  color: var(--muted);
+  color: #00373C;
   font-size: 13px;
   padding-top: 12px;
   border-top: 1px solid rgba(255,255,255,0.02);
@@ -421,4 +430,52 @@ section:nth-of-type(4) { animation-delay: .40s; }
   .card-block { grid-template-columns: 1fr; }
   .special-grid { grid-template-columns: repeat(2,1fr); }
   .game-title .big { font-size: 36px; }
+}
+
+/* --- Icone toggle pour les cartes Special --- */
+.spec {
+  position: relative;
+}
+
+.spec h4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #00373C; /* remet ton bon style */
+}
+
+.toggle-icon {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  opacity: 0.7;
+  filter: brightness(0) invert(0.3);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.toggle-icon:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.spec-image {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+}
+
+.spec img.toggle-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.spec .card-image {
+  display: none; /* cachée par défaut */
+  width: 50%;
+  max-height: 200px;
+  object-fit: cover;
+  margin-top: 10px;
+  border-radius: 8px;
+  object-fit: cover;
 }
