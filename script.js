@@ -32,4 +32,4 @@ function createFallingItem() {
     }, duration * 1000 + 2000);
 }
 
-setInterval(createFallingItem, 600);
+setInterval(createFallingItem, 1200);

@@ -20,8 +20,8 @@ body {
 }
 
 h1 {
-    color: #F1DBBC;
-    font-size: clamp(40px, 10vw, 70px);
+    color:  #F1DBBC;
+    font-size: clamp(30px, 10vw, 55px);
     letter-spacing: 3px;
     margin-bottom: 40px;
 }
@@ -36,18 +36,40 @@ a {
     color: #00373C;
     padding: 14px 38px;
     font-size: clamp(16px, 4vw, 22px);
+    font-weight: bold; 
     border-radius: 50px;
     cursor: pointer;
     display: block;
-    text-align: center;
-
     width: 80%;
     max-width: 300px;
     margin: 15px auto;
+    box-shadow: 0 10px 25px rgba(224, 223, 119, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+
+    padding: 10px 25px;
+    font-size: 22px;
+
+    background: #D9B98C;
+    border: none;
+    color: #00373C;
+    border-radius: 50px;
+    cursor: pointer;
 
     box-shadow: 0 10px 25px rgba(224, 223, 119, 0.4);
-    transition: transform .2s, box-shadow .2s;
+    transition: 0.2s;
+    z-index: 9999;
 }
+
+.back-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(197, 193, 129, 0.5);
+}
+
 
 .btn:hover {
     transform: scale(1.05);
@@ -71,6 +93,11 @@ a {
     white-space: nowrap;
     animation: fallAnim linear forwards;
 }
+.falling-text img {
+    width: 90px;    
+    height: auto;   
+}
+
 
 @keyframes fallAnim {
     0% {
