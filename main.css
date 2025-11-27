@@ -1,9 +1,8 @@
-
 body {
     margin: 0;
     padding: 0;
     font-family: 'Fredoka One', sans-serif;
-    background-image: url('images/image-font.png'); 
+    background-image: url('images/image-font.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -14,38 +13,40 @@ body {
     align-items: center;
 }
 
-
 .container {
     text-align: center;
     width: 90%;
     max-width: 500px;
-    
 }
 
 h1 {
     color: #F1DBBC;
-    font-size: clamp(40px, 10vw, 70px); 
+    font-size: clamp(40px, 10vw, 70px);
     letter-spacing: 3px;
     margin-bottom: 40px;
 }
+
 a {
     text-decoration: none;
 }
 
-.btn{
-    background: #F1DBBC;
+.btn {
+    background: #D9B98C;
     border: none;
     color: #00373C;
-    padding: 16px 40px;
-    font-size: clamp(16px, 4vw, 22px); 
+    padding: 14px 38px;
+    font-size: clamp(16px, 4vw, 22px);
     border-radius: 50px;
     cursor: pointer;
     display: block;
-    width: 80%;         
-    max-width: 300px;   
+    text-align: center;
+
+    width: 80%;
+    max-width: 300px;
     margin: 15px auto;
+
     box-shadow: 0 10px 25px rgba(224, 223, 119, 0.4);
-    transition: 0.2s;
+    transition: transform .2s, box-shadow .2s;
 }
 
 .btn:hover {
@@ -55,27 +56,25 @@ a {
 
 .falling-text-container {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;   
+    inset: 0;
+    pointer-events: none;
     overflow: hidden;
     z-index: 1;
 }
 
 .falling-text {
     position: absolute;
-    top: -100px;
-    font-size: 28px;
+    top: -120px;
+    font-size: 20px;
     font-weight: bold;
-    color: #F1DBBC; 
-    animation: fallAnim linear infinite;
+    color: #F1DBBC;
     white-space: nowrap;
+    animation: fallAnim linear forwards;
 }
+
 @keyframes fallAnim {
     0% {
-        transform: translateY(-120px) rotate(0deg);
+        transform: translateY(-150px) rotate(0deg);
         opacity: 0;
     }
     10% {
@@ -87,30 +86,17 @@ a {
     }
 }
 
-
-.falling-text:nth-child(1) { left: 5%;  animation-duration: 5s;  animation-delay: 0s; }
-.falling-text:nth-child(2) { left: 15%; animation-duration: 6s;  animation-delay: 1s; }
-.falling-text:nth-child(3) { left: 40%; animation-duration: 7s;  animation-delay: 0.5s; }
-.falling-text:nth-child(4) { left: 60%; animation-duration: 4.5s; animation-delay: 2s; }
-.falling-text:nth-child(5) { left: 70%; animation-duration: 8s;  animation-delay: 1.5s; }
-.falling-text:nth-child(6) { left: 80%; animation-duration: 9s;  animation-delay: 2.3s; }
-.falling-text:nth-child(7) { left: 88%; animation-duration: 11s;  animation-delay: 2.5s; }
-.falling-text:nth-child(8) { left: 90%; animation-duration: 9s;  animation-delay: 2.3s; }
-.falling-text:nth-child(9) { left: 98%; animation-duration: 11s;  animation-delay: 2.5s; }
-
-
 @media (min-width: 900px) {
     h1 {
         margin-bottom: 60px;
     }
-
-    .btn{
+    .btn {
         margin: 20px auto;
     }
 }
 
 @media (max-width: 350px) {
-    .btn{
+    .btn {
         padding: 14px 20px;
         width: 90%;
     }
