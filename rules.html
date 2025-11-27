@@ -1,22 +1,195 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rules</title>
-    <link rel="stylesheet" href="main.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Spam Wars — Rules of the Game</title>
+  <link rel="stylesheet" href="main.css">
 </head>
 <body>
+  <div class="sheet">
 
-    <button class="back-btn" onclick="history.back()">← Retour</button>
+    <header class="sheet-header">
+      <div class="title-block">
+        <div class="game-title">
+          <span class="big">SPAM</span>
+          <span class="big accent">WARS</span>
+        </div>
+      </div>
 
-    <div class="container">
-        <h1>Règles du jeu</h1>
+      <div class="right-top">
+        <div class="badge">Hack Track Back</div>
+      </div>
+    </header>
 
-        <a href="./Rules-of-the-game.pdf" download>
-            <button class="btn">Télécharger PDF</button>
-        </a>
+    <section class="summary">
+      <div class="panel left">
+        <h2>Number of players</h2>
+        <p class="big-number">3 to 5 players</p>
+        <h2>Game Contents</h2>
+
+    <div class="bubble">
+        <ul>
+        <li><strong>Total:</strong> 65 cards</li>
+        <li>39 Email Cards
+            <ul>
+            <li>15 Clean Emails</li>
+            <li>14 Spam Emails</li>
+            <li>10 Phishing Emails</li>
+            </ul>
+        </li>
+        <li>25 Special Cards (unique effects)</li>
+        <li>1 Mega Virus (instant elimination)</li>
+        </ul>
     </div>
+      </div>
 
+      <div class="panel right">
+        <h2>End of game</h2>
+        <p>A player shouts <strong>“SPAM WARS!”</strong></p>
+        <p>All players reveal their 3 inbox cards.</p>
+
+        <h3>Scoring</h3>
+        <table class="score">
+          <tr><td>Clean</td><td class="muted">0</td></tr>
+          <tr><td>Spam</td><td class="muted">-1</td></tr>
+          <tr><td>Phishing</td><td class="muted">-2</td></tr>
+          <tr><td>Specials</td><td class="muted">0</td></tr>
+          <tr><td>Mega Virus</td><td class="danger">Elimination</td></tr>
+        </table>
+
+        <div class="note">Player with the fewest negative points wins.</div>
+      </div>
+    </section>
+
+    <section class="setup">
+      <h2>Setup</h2>
+
+      <div class="card-block">
+        <div class="card">
+          <h3>1. Prepare the cards for the inbox</h3>
+          <p>Separate only the Clean Emails, Spam, and Phishing cards. Do not shuffle the special cards at this time.</p>
+        </div>
+
+        <div class="card">
+          <h3>2. Distribution of the Mailbox</h3>
+          <ul>
+            <li>Each player receives 3 cards, face down, to form their mailbox.</li>
+            <li><strong>Requirement:</strong> Each player must place at least one "Clean Email" card among these 3 cards and can freely choose its position.</li>
+            <li>The other 2 cards (Clean, Spam, or Phishing) can be placed in any order, secretly.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>3. Dealing the Hand</h3>
+          <ol>
+            <li>Now give 2 Special cards to each player.</li>
+            <li>Shuffle all remaining cards together, including the unused Special cards.</li>
+            <li>Each player then draws cards until they reach a hand of 5 cards.</li>
+            <li>All remaining cards are placed face down to form the center deck, ready for play.</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h3>4. Open an Email</h3>
+          <p>You have the right to look at a card in your email inbox.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="specials">
+      <h2>Special Cards</h2>
+
+      <div class="special-grid">
+        <article class="spec">
+          <h4>Return to Sender</h4>
+          <p>The message goes back the other way… 
+            sometimes at the worst possible moment.
+             With this card, you exchange one of the cards in your mailbox with a card from an opponent's mailbox. Neither player can see the exchanged cards.
+          </p>
+        </article>
+
+        <article class="spec">
+          <h4>Jumbled Mailbox</h4>
+          <p>
+            This card lets you shuffle an opponent's mailbox. Gather their three cards and shuffle them without looking at them, then place them back in front of them. This leaves them completely unsure of what they received.
+          </p>
+        </article>
+
+        <article class="spec">
+          <h4>Include in CC (Cc)</h4>
+          <p>
+             When you play this card, your next action will involve two players instead of one. You first play the special card, then perform your next action: send an email to two opponents, whether it's a Spam, a Clean, or a Phishing. The special card's effect allows you to attack two players simultaneously.
+          </p>
+        </article>
+
+        <article class="spec">
+          <h4>Ghost VPN</h4>
+          <p>
+            You are temporarily invisible on the network. Thanks to this card, no player can email you or use any special cards against you.
+          </p>
+        </article>
+
+        <article class="spec">
+          <h4>Error 404</h4>
+          <p>
+            This card instantly cancels any special card currently in use
+          </p>
+        </article>
+
+        <article class="spec">
+          <h4>Fake Technical Support</h4>
+          <p>
+            By playing this card, you swap your entire hand with that of an opponent of your choice. The manipulation is complete: the cards change hands.
+          </p>
+        </article>
+
+        <article class="spec">
+          <h4>Antivirus Scan</h4>
+          <p>
+            Choose a player who must randomly reveal one of the cards from their inbox. 
+          </p>
+        </article>
+
+        <article class="spec">
+          <h4>Forgot Password</h4>
+          <p>
+            This card allows you to target an opponent who will have to discard a card at random from their hand.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="turns">
+      <h2>Turn Procedure</h2>
+
+      <div class="card">
+        <h3>On your turn, choose one:</h3>
+
+        <h4>1. Send an Email to an Opponent (Legitimate, Spam, or Phishing)</h4>
+        <p>You choose a card from your hand and give it face down to a player.</p>
+        <p>The targeted player must then:</p>
+        <ul>
+          <li>Accept the email → place it in their inbox, replacing one of their 3 current cards (without looking at the received email).</li>
+          <li>OR defend themselves by immediately playing a Special card.</li>
+        </ul>
+
+        <h4>2. Play a Special Card</h4>
+        <p>Play a special card from your hand and apply its effect immediately.</p>
+
+        <h4>3. Play nothing and draw a card</h4>
+        <p>Discard a card and draw another.</p>
+
+        <h4>Mega Virus</h4>
+        <p>If a player receives (or keeps) a Mega Virus in their inbox or in their hand, they lose instantly.</p>
+      </div>
+    </section>
+
+    <footer class="sheet-footer">
+      <div>Spam Wars — Rules</div>
+      <div class="muted">Visible: 0% - 100%</div>
+    </footer>
+
+  </div>
 </body>
 </html>

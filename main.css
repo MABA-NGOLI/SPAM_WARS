@@ -93,10 +93,6 @@ a {
     white-space: nowrap;
     animation: fallAnim linear forwards;
 }
-.falling-text img {
-    width: 90px;    
-    height: auto;   
-}
 
 
 @keyframes fallAnim {
@@ -120,6 +116,10 @@ a {
     .btn {
         margin: 20px auto;
     }
+    .falling-text img {
+    width: 100px;    
+    height: auto;   
+    }
 }
 
 @media (max-width: 350px) {
@@ -127,4 +127,302 @@ a {
         padding: 14px 20px;
         width: 90%;
     }
+    .falling-text img {
+    width: 90px;    
+    height: auto;   
+}
+}
+
+/*rules*/
+/* Base & typography */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap');
+
+:root {
+  --bg: #0b1016;
+  --panel: #0f1520;
+  --muted: #9aa4b2;
+  --danger: #ff6b6b;
+  --glass: rgba(255,255,255,0.03);
+  --radius: 12px;
+}
+
+/* ----------------------------
+   Global
+---------------------------- */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background: #D9B98C;
+  color: #00373C;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ----------------------------
+   Container
+---------------------------- */
+.sheet {
+  max-width: 980px;
+  margin: 28px auto;
+  padding: 28px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+  animation: fadeZoom 0.5s ease-out;
+}
+
+/* ----------------------------
+   Header
+---------------------------- */
+.sheet-header {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.title-block {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.game-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.game-title .big {
+  font-size: 44px;
+  line-height: 36px;
+  color: #fff;
+  animation: slideTitle 0.6s ease-out;
+}
+
+.game-title .accent {
+  color: #00373C;
+  margin-top: -6px;
+}
+
+/* Right top */
+.right-top {
+  text-align: right;
+  color: var(--muted);
+}
+
+.badge {
+  background: #00373C;
+  padding: 8px 12px;
+  border-radius: 999px;
+  display: inline-block;
+  font-weight: 600;
+  color: #FFFFFF;
+  animation: softPulse 2.4s ease-in-out infinite;
+}
+
+/* ----------------------------
+   Summary panels
+---------------------------- */
+.summary {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 20px;
+  margin-top: 6px;
+}
+
+.panel {
+  background: linear-gradient(1deg, rgba(209, 211, 107, 0.01), transparent);
+  padding: 18px;
+  border-radius: 12px;
+  border: 10px solid var(--glass);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.panel:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.35);
+  border-color: rgba(255,255,255,0.12);
+}
+
+/* Big number */
+.big-number {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 6px 0 12px;
+}
+
+/* Score table */
+.score {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+.score td { padding: 6px 0; }
+.score .muted { color: var(--muted); }
+.score .danger { color: var(--danger); font-weight: 700; }
+
+/* ----------------------------
+   Setup cards
+---------------------------- */
+.setup { margin-top: 28px; }
+.card-block {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 16px;
+  margin-top: 12px;
+}
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--glass);
+  box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.35);
+  border-color: rgba(255,255,255,0.12);
+}
+
+/* ----------------------------
+   Specials
+---------------------------- */
+.specials { margin-top: 26px; }
+.special-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+.spec {
+  background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.02);
+  min-height: 92px;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.spec h4 {
+  color: var(--accent);
+  margin: 0 0 8px;
+  animation: slideTitle 0.6s ease-out;
+}
+.spec p {
+  margin: 0;
+  color: #00373C;
+  font-size: 13px;
+}
+.spec:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+/* ----------------------------
+   Turns
+---------------------------- */
+.turns { margin-top: 28px; }
+
+/* ----------------------------
+   Footer
+---------------------------- */
+.sheet-footer {
+  margin-top: 26px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 13px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.02);
+}
+
+/* ----------------------------
+   Bubble – modern version without bullets
+---------------------------- */
+.bubble {
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 20px 24px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 22px rgba(0,0,0,0.45);
+  margin-top: 12px;
+  animation: fadeIn 0.4s ease-out;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.bubble:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+}
+.bubble ul,
+.bubble ul ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.bubble li {
+  margin-bottom: 10px;
+  padding: 6px 0 6px 12px;
+  position: relative;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+  border-left: 3px solid rgba(255,255,255,0.08);
+  color: #fff;
+}
+.bubble ul ul li {
+  margin-left: 14px;
+  opacity: 0.8;
+  font-size: 14px;
+  border-left-color: rgba(255,255,255,0.05);
+}
+.bubble strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ----------------------------
+   Animations
+---------------------------- */
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(8px);}
+  to {opacity:1; transform:translateY(0);}
+}
+@keyframes fadeZoom {
+  from {opacity:0; transform:translateY(12px) scale(0.97);}
+  to {opacity:1; transform:translateY(0) scale(1);}
+}
+@keyframes slideTitle {
+  from {opacity:0; transform:translateX(-12px);}
+  to {opacity:1; transform:translateX(0);}
+}
+@keyframes softPulse {
+  0%,100% { transform: scale(1); opacity:1;}
+  50% { transform: scale(1.05); opacity:0.92;}
+}
+
+/* Section reveal */
+section {
+  opacity:0;
+  animation: fadeZoom 0.7s ease-out forwards;
+}
+section:nth-of-type(1) { animation-delay: .10s; }
+section:nth-of-type(2) { animation-delay: .20s; }
+section:nth-of-type(3) { animation-delay: .30s; }
+section:nth-of-type(4) { animation-delay: .40s; }
+
+/* ----------------------------
+   Responsive
+---------------------------- */
+@media (max-width: 900px) {
+  .summary { grid-template-columns: 1fr; }
+  .card-block { grid-template-columns: 1fr; }
+  .special-grid { grid-template-columns: repeat(2,1fr); }
+  .game-title .big { font-size: 36px; }
 }
