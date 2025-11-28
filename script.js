@@ -32,7 +32,7 @@ function createFallingItem() {
     }, duration * 1000 + 2000);
 }
 
-setInterval(createFallingItem, 1200);
+setInterval(createFallingItem, 1000);
 
 
 document.querySelectorAll('.spec .toggle-icon').forEach(icon => {
@@ -65,4 +65,58 @@ document.querySelectorAll('.spec .toggle-icon').forEach(icon => {
     }
   });
 });
+
+
+(function(){
+  const btn = document.getElementById('scrollTop');
+
+  // Si l'ancre #top n'existe pas, crée-la en haut du body pour que le lien fonctionne correctement
+  if (!document.getElementById('top')) {
+    const topAnchor = document.createElement('div');
+    topAnchor.id = 'top';
+    topAnchor.style.position = 'relative';
+    topAnchor.style.top = '0';
+    document.body.insertBefore(topAnchor, document.body.firstChild);
+  }
+
+  // Montrer le bouton après un certain scroll (adapte le seuil selon besoin)
+  const SHOW_AFTER = 180; // px
+
+  const onScroll = () => {
+    if (window.scrollY > SHOW_AFTER) btn.classList.add('show');
+    else btn.classList.remove('show');
+  };
+
+  // debounce léger pour perf
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        onScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, {passive: true});
+
+  // clic : smooth scroll with fallback (respect prefers-reduced-motion)
+  btn.addEventListener('click', (e) => {
+    // si c'est un <a href="#top">, browser ferait déjà le jump ; on intercepte pour smooth
+    e.preventDefault();
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) {
+      window.scrollTo(0,0);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // pour accessibilité : renvoyer le focus au contenu principal si tu as un élément #main
+    const main = document.getElementById('main') || document.querySelector('main');
+    if (main) main.setAttribute('tabindex', '-1'), main.focus();
+  });
+
+  // afficher immédiatement si la page a déjà le scroll (ex: reload)
+  onScroll();
+})();
 

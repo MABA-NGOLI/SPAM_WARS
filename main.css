@@ -94,6 +94,10 @@ a {
     white-space: nowrap;
     animation: fallAnim linear forwards;
 }
+.falling-text img {
+    width: 100px;    
+    height: auto;   
+    }
 
 
 @keyframes fallAnim {
@@ -129,7 +133,7 @@ a {
         width: 90%;
     }
     .falling-text img {
-    width: 90px;    
+    width: 50px;    
     height: auto;   
 }
 }
@@ -243,7 +247,7 @@ body {
 }
 
 .panel {
-  background: linear-gradient(1deg, rgba(209, 211, 107, 0.01), transparent);
+  background: linear-gradient(1deg, rgba(54, 54, 35, 0.01), transparent);
   padding: 18px;
   border-radius: 12px;
   border: 1px solid var(--glass);
@@ -270,7 +274,7 @@ body {
   margin-top: 8px;
 }
 .score td { padding: 6px 0; }
-.score .muted { color: var(--muted); }
+.score .muted { color: var(--panel); }
 .score .danger { color: var(--danger); font-weight: 700; }
 
 /* ----------------------------
@@ -478,4 +482,70 @@ section:nth-of-type(4) { animation-delay: .40s; }
   margin-top: 10px;
   border-radius: 8px;
   object-fit: cover;
+}
+
+:root{
+  --scroll-size: 36px;         /* taille par défaut */
+  --scroll-bg-hover: #a87243;
+  --scroll-offset: 24px;       /* marge depuis le bord */
+  --scroll-z: 9999;
+}
+
+/* Bouton (hidden par défaut) */
+.scroll-top{
+  position: fixed;
+  right: var(--scroll-offset);
+  bottom: var(--scroll-offset);
+  width: var(--scroll-size);
+  height: var(--scroll-size);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--scroll-bg);
+  color: #000;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  transform: translateY(10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 240ms ease, transform 240ms ease, background-color 160ms;
+  z-index: var(--scroll-z);
+}
+
+/* Visible */
+.scroll-top.show{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Hover / focus */
+.scroll-top:hover,
+.scroll-top:focus{
+  background: var(--scroll-bg-hover);
+  outline: none;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.25);
+}
+
+/* Larger icon and target for small screens (easy to tap) */
+@media (max-width: 600px){
+  :root{ --scroll-size: 36px; --scroll-offset: 13px; }
+  .scroll-top{ font-size: 1.2rem; } /* icône plus grande */
+}
+
+/* Avoid covering important UI on very small screens: shift left a bit */
+@media (max-width: 420px){
+  .scroll-top{ right: calc(var(--scroll-offset) + 8px); bottom: calc(var(--scroll-offset) + 8px); }
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .scroll-top{ transition: none; transform: none; }
+}
+
+/* Small visual tweak for icon */
+.scroll-top i{
+  font-size: 1.25rem;
+  line-height: 1;
 }
