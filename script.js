@@ -19,11 +19,11 @@ function createFallingItem() {
     el.style.left = Math.random() * 100 + "vw";
 
     
-    const duration = 4 + Math.random() * 8;
+    const duration = 4 + Math.random() * 3;
     el.style.animationDuration = duration + "s";
 
     
-    el.style.animationDelay = (Math.random() * 2) + "s";
+    el.style.animationDelay = (Math.random() * 0.5) + "s";
 
     container.appendChild(el);
 
