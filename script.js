@@ -120,3 +120,59 @@ document.querySelectorAll('.spec .toggle-icon').forEach(icon => {
   onScroll();
 })();
 
+// ---------- SEARCH FUNCTION ----------
+const searchInput = document.getElementById('searchInput');
+
+if (searchInput) {
+    searchInput.addEventListener('input', function() {
+        const query = this.value.trim().toLowerCase();
+        clearHighlights();
+
+        if(query !== "") {
+            highlightMatches(query);
+        }
+    });
+}
+
+// Efface les surlignages existants
+function clearHighlights() {
+    document.querySelectorAll('.highlight').forEach(el => {
+        const parent = el.parentNode;
+        parent.replaceChild(document.createTextNode(el.textContent), el);
+        parent.normalize(); // fusionne les textes
+    });
+}
+
+// Recherche et surligne
+function highlightMatches(query) {
+    const container = document.querySelector('.sheet'); // tout le contenu
+    const textNodes = getTextNodes(container);
+
+    textNodes.forEach(node => {
+        const text = node.textContent;
+        const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
+        if (regex.test(text)) {
+            const span = document.createElement('span');
+            span.innerHTML = text.replace(regex, '<span class="highlight">$1</span>');
+            node.parentNode.replaceChild(span, node);
+        }
+    });
+}
+
+// Fonction pour obtenir tous les noeuds texte
+function getTextNodes(node) {
+    let nodes = [];
+    if(node.nodeType === Node.TEXT_NODE) {
+        nodes.push(node);
+    } else {
+        node.childNodes.forEach(child => {
+            nodes = nodes.concat(getTextNodes(child));
+        });
+    }
+    return nodes;
+}
+
+// Échappe les caractères spéciaux pour RegExp
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}

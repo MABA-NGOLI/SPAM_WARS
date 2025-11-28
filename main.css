@@ -176,12 +176,34 @@ body {
   border-radius: 16px;
   background: #D9B98C
 }
-.home-img {
-  display: block;         /* pour pouvoir centrer avec margin auto */
-  margin: 10px auto;      /* centrer horizontalement + un peu d’espace en haut/bas */
-  max-width: 30%;         /* largeur maximale relative à la fenêtre */
-  height: auto;           /* conserve les proportions */
+/* ---------- SEARCH BAR ---------- */
+.search-container {
+    margin: 20px 0;
+    text-align: center;
 }
+
+.search-container input {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px 14px;
+    border-radius: 25px;
+    border: 1px solid #00373C;
+    font-size: 16px;
+    outline: none;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.search-container input:focus {
+    box-shadow: 0 0 12px rgba(197, 67, 67, 0.25);
+    transform: scale(1.02);
+}
+
+/* Highlight found text */
+.highlight {
+    background-color: rgb(172, 172, 92);
+   
+}
+
 
 /* ----------------------------
    Header
